@@ -2,7 +2,8 @@ const buttonTheme = {
   MuiButton: {
     styleOverrides: {
       root: {
-        width: '8rem',
+        width: 'contain',
+        padding: '0.5rem 1rem',
         borderRadius: '5rem',
         backgroundColor: '#fff',
         color: '#000',

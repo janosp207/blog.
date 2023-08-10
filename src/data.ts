@@ -35,4 +35,6 @@ export const posts = [
 		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl vitae luctus lacinia, nunc nisl aliquam nunc, vitae aliquet nisl n',
 		tags: ['programming', 'JavaScript', 'fun']
 	},
-]
+];
+
+export const tags = ['art', 'gaming', 'fun', 'music', 'photography', 'programming', 'JavaScript'];
