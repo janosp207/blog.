@@ -2,7 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navigation from '@/components/Navigation'
-import { Container } from '@mui/material'
+import { Box, Container } from '@mui/material'
 import ThemeRegistry from '@/theme/ThemeRegistry'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,8 +21,10 @@ export default function RootLayout({
 		<html lang="en">
 			<ThemeRegistry>
 				<body className={inter.className}>
-					<Navigation />
-					{children}
+					<Box p={3}>
+						<Navigation />
+						{children}
+					</Box>
 				</body>
 			</ThemeRegistry>
 		</html>

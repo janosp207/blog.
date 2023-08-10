@@ -4,7 +4,7 @@ import Title from "@/components/blogBoard/Title"
 export default function Home(): JSX.Element {
 	return (
 		<>
-			<Title />
+			<Title text="Latest blog. posts" />
 			<BlogBoard />
 		</>
 	)

@@ -4,6 +4,7 @@ import { posts } from '@/data'
 import BlogPost from '@/components/blogBoard/BlogPost'
 import { Post } from '@/classes/Post'
 import { Box, styled } from '@mui/material'
+import { PostFormat } from '@/classes/Post'
 
 const StyledBlogBoard = styled(Box)({
   display: 'flex',
@@ -24,7 +25,7 @@ const BlogBoard = (): JSX.Element => {
       {posts.map((post, index) => (
         <BlogPostContainer
           sx={{
-            width: index === 0 && posts.length % 2 !== 0 ? '100%' : '50%',
+            width: post.format === PostFormat.FULL ? '100%' : '50%',
           }}
           key={`${post.title}-${index}`}>
           <BlogPost post={post as Post} />
