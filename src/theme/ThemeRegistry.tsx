@@ -1,10 +1,11 @@
 "use client";
 
-import { createTheme, ThemeProvider, ThemeOptions } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import themeOptions from "./themeOptions";
 import CssBaseline from "@mui/material/CssBaseline";
 import { NextAppDirEmotionCacheProvider } from "./EmotionCache";
 
-const themeOptions: ThemeOptions = {}
+
 
 const theme = createTheme(themeOptions);
 

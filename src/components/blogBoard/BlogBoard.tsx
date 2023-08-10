@@ -11,23 +11,27 @@ const StyledBlogBoard = styled(Box)({
   flexWrap: 'wrap',
 })
 
-const BlogPostContainer = styled(Box)(({ isWide }: { isWide: boolean }) => ({
-  width: isWide ? '100%' : '50%',
+const BlogPostContainer = styled(Box)({
   padding: '1rem',
   '@media (max-width: 600px)': {
     width: '100%',
   },
-}))
+})
 
 const BlogBoard = (): JSX.Element => {
   return (
     <StyledBlogBoard>
       {posts.map((post, index) => (
-        <BlogPostContainer isWide={index === 0 && posts.length % 2 !== 0}>
+        <BlogPostContainer
+          sx={{
+            width: index === 0 && posts.length % 2 !== 0 ? '100%' : '50%',
+          }}
+          key={`${post.title}-${index}`}>
           <BlogPost post={post as Post} />
         </BlogPostContainer>
-      ))}
-    </StyledBlogBoard>
+      ))
+      }
+    </StyledBlogBoard >
   )
 }
 

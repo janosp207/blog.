@@ -12,19 +12,6 @@ const StyledBlogBox = styled(Box)({
   padding: '3rem',
 })
 
-const StyledButton = styled(Button)({
-  width: '8rem',
-  borderRadius: '5rem',
-  backgroundColor: '#fff',
-  color: '#000',
-  border: '1px solid black',
-  '&:hover': {
-    backgroundColor: '#000',
-    color: '#fff',
-  },
-  fontWeight: 'bold',
-})
-
 type Props = {
   post: Post
 }
@@ -45,11 +32,11 @@ const BlogPost = ({ post }: Props): JSX.Element => {
       </Box>
       <Typography variant="body1">{post.shortText}</Typography>
       <Box display='flex' flexDirection='row' gap={2} alignItems='center' flexWrap='wrap'>
-        <StyledButton variant="contained" color="primary">Read more.</StyledButton>
+        <Button variant="contained" color="primary">Read more.</Button>
         <Circle />
         {
           post.tags.map((tag) => (
-            <BlogTag tag={tag} />
+            <BlogTag tag={tag} key={`${post.title}-${tag}`} />
           ))
         }
       </Box>
