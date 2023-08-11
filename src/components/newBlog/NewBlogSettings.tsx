@@ -4,7 +4,8 @@ import { PostFormat } from "@/classes/Post"
 import { useState } from "react"
 const StyledPostSettings = styled(Box)({
   border: '1px solid black',
-  padding: '2rem'
+  padding: '2rem',
+  borderRadius: '5px',
 })
 
 const StyledFormatItem = styled(Box, { shouldForwardProp: (prop) => prop !== 'active' })(({ active }: { active: boolean }) => ({

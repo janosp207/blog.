@@ -3,8 +3,11 @@ import { useState, useRef } from 'react';
 
 const StyledEditor = styled(Box)({
   border: '1px solid black',
-  padding: '2rem'
-})
+  padding: '2rem',
+  borderRadius: '5px',
+  overflowY: 'scroll',
+  maxHeight: '75vh',
+});
 
 const StyledTextArea = styled(TextareaAutosize)({
   width: '100%',
