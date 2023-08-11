@@ -3,6 +3,8 @@
 import { Post } from "@/classes/Post"
 import { Typography, Box, styled, Button } from "@mui/material"
 import BlogTag from "@/components/utils/BlogTag"
+import Link from "next/link"
+import { PATHS } from "@/paths"
 
 const StyledBlogBox = styled(Box)({
   display: 'flex',
@@ -24,7 +26,7 @@ const Circle = styled('div')({
   backgroundColor: '#E9E9E9',
 })
 
-const BlogPost = ({ post }: Props): JSX.Element => {
+const BlogPostCard = ({ post }: Props): JSX.Element => {
   return (
     <StyledBlogBox>
       <Box>
@@ -33,7 +35,9 @@ const BlogPost = ({ post }: Props): JSX.Element => {
       </Box>
       <Typography variant="body1">{post.shortText}</Typography>
       <Box display='flex' flexDirection='row' gap={2} alignItems='center' flexWrap='wrap'>
-        <Button variant="contained" color="primary">Read more.</Button>
+        <Link href={PATHS.POST.replace(':id', `${post.id}`)}>
+          <Button variant="contained" color="primary">Read more.</Button>
+        </Link>
         <Circle />
         {
           post.tags.map((tag) => (
@@ -45,4 +49,4 @@ const BlogPost = ({ post }: Props): JSX.Element => {
   )
 }
 
-export default BlogPost;
+export default BlogPostCard;

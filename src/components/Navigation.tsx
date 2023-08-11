@@ -31,7 +31,9 @@ const Navigation = (): JSX.Element => {
 			<StyledFlexBox>
 				<Link href={PATHS.HOME}><Typography>Home</Typography></Link>
 				<Typography>Login</Typography>
-				<Button>CREATE.</Button>
+				<Link href={PATHS.CREATE}>
+					<Button>CREATE.</Button>
+				</Link>
 			</StyledFlexBox>
 		</StyledNavBox>
 	);

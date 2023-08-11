@@ -1,7 +1,7 @@
 "use client"
 
 import { posts } from '@/data'
-import BlogPost from '@/components/blogBoard/BlogPost'
+import BlogPostCard from '@/components/blogBoard/BlogPostCard'
 import { Post } from '@/classes/Post'
 import { Box, styled } from '@mui/material'
 import { PostFormat } from '@/classes/Post'
@@ -28,7 +28,7 @@ const BlogBoard = (): JSX.Element => {
             width: post.format === PostFormat.FULL ? '100%' : '50%',
           }}
           key={`${post.title}-${index}`}>
-          <BlogPost post={post as Post} />
+          <BlogPostCard post={post as Post} />
         </BlogPostContainer>
       ))
       }

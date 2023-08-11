@@ -9,8 +9,8 @@ export class Post {
   format = PostFormat.HALF;
   title = '';
   shortText = '';
-  text = '';
-  tags = [];
+  text: string[] = [];
+  tags: string[] = [];
 
   constructor(data: Partial<Post>) {
     this.id = data.id ?? this.id;
