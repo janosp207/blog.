@@ -5,7 +5,7 @@ import { useState } from "react"
 const StyledPostSettings = styled(Box)({
   border: '1px solid black',
   padding: '2rem',
-  borderRadius: '5px',
+  borderRadius: '1rem',
 })
 
 const StyledFormatItem = styled(Box, { shouldForwardProp: (prop) => prop !== 'active' })(({ active }: { active: boolean }) => ({
@@ -20,7 +20,7 @@ const StyledFormatItem = styled(Box, { shouldForwardProp: (prop) => prop !== 'ac
 const StyledTextArea = styled(TextareaAutosize)({
   width: '100%',
   border: '1px solid lightgrey',
-  borderRadius: '5px',
+  borderRadius: '1rem',
   padding: '1rem',
   resize: 'none',
   fontFamily: 'inherit',

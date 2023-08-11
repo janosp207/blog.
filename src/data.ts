@@ -38,3 +38,9 @@ export const posts = [
 ];
 
 export const tags = ['art', 'gaming', 'fun', 'music', 'photography', 'programming', 'JavaScript'];
+
+export const user = {
+	id: 1,
+	name: 'John Doe',
+	usertag: 'johndoe',
+}

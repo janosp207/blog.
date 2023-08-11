@@ -12,7 +12,7 @@ const StyledBlogBox = styled(Box)({
   gap: '1rem',
   border: '1px solid black',
   padding: '3rem',
-  borderRadius: '5px',
+  borderRadius: '1rem',
 })
 
 type Props = {

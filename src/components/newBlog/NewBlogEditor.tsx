@@ -4,7 +4,7 @@ import { useState } from 'react';
 const StyledEditor = styled(Box)({
   border: '1px solid black',
   padding: '2rem',
-  borderRadius: '5px',
+  borderRadius: '1rem',
   overflowY: 'scroll',
   maxHeight: '75vh',
 });
@@ -12,7 +12,7 @@ const StyledEditor = styled(Box)({
 const StyledTextArea = styled(TextareaAutosize)({
   width: '100%',
   border: '1px solid lightgrey',
-  borderRadius: '5px',
+  borderRadius: '1rem',
   padding: '1rem',
   resize: 'none',
   fontFamily: 'inherit',
