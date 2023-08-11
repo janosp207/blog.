@@ -27,7 +27,7 @@ const StyledFlexBox = styled(Box)({
 const Navigation = (): JSX.Element => {
 	return (
 		<StyledNavBox>
-			<Typography variant="h5" fontWeight='bold'>Blog.</Typography>
+			<Typography variant="h5" fontWeight='bold'>Blog:;</Typography>
 			<StyledFlexBox>
 				<Link href={PATHS.HOME}><Typography>Home</Typography></Link>
 				<Typography>Login</Typography>

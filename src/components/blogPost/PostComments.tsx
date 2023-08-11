@@ -8,6 +8,7 @@ import { Comment as CommentClass } from "@/classes/Comment";
 const PostComments = () => {
   return (
     <Box mt={5}>
+      <Typography variant='h3' fontWeight='bold' textAlign='center' mt={8} mb={3}>Comments</Typography>
       <Grid container spacing={2}>
         {
           comments.map((comment) => (

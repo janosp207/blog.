@@ -8,7 +8,7 @@ import ThemeRegistry from '@/theme/ThemeRegistry'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-	title: 'blog.',
+	title: 'Blog:::',
 	description: 'Blog of a software engineer.',
 }
 
