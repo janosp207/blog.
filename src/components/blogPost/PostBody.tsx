@@ -5,7 +5,10 @@ import { Box, Typography, styled } from "@mui/material";
 import BlogTag from "@/components/utils/BlogTag";
 
 const StyledBlogBody = styled(Box)({
-  marginTop: '1rem',
+  border: '1px solid black',
+  borderRadius: '1rem',
+  padding: '1rem',
+  textAlign: 'justify',
 })
 
 const StyledBlogText = styled(Typography)({

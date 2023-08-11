@@ -43,4 +43,55 @@ export const user = {
 	id: 1,
 	name: 'John Doe',
 	usertag: 'johndoe',
-}
+};
+
+export const comments = [
+	{
+		id: 1,
+		text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+		author: "User1",
+		authorTag: "@user1",
+		date: "10/08/2023",
+		postId: 1,
+	},
+	{
+		id: 2,
+		text: "Praesent euismod arcu eget tellus fermentum.",
+		author: "User2",
+		authorTag: "@user2",
+		date: "09/08/2023",
+		postId: 1,
+	},
+	{
+		id: 3,
+		text: "Vestibulum consectetur ante ut augue rhoncus.",
+		author: "User3",
+		authorTag: "@user3",
+		date: "08/08/2023",
+		postId: 1,
+	},
+	{
+		id: 4,
+		text: "Fusce auctor, tortor eget convallis rhoncus.",
+		author: "User4",
+		authorTag: "@user4",
+		date: "07/08/2023",
+		postId: 1,
+	},
+	{
+		id: 5,
+		text: "Quisque eget nulla venenatis, consequat tellus nec.",
+		author: "User5",
+		authorTag: "@user5",
+		date: "06/08/2023",
+		postId: 1,
+	},
+	{
+		id: 6,
+		text: "Nam pellentesque, nunc eget feugiat bibendum.",
+		author: "User6",
+		authorTag: "@user6",
+		date: "05/08/2023",
+		postId: 1,
+	},
+];
