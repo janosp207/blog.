@@ -11,7 +11,7 @@ const PostComments = () => {
       <Grid container spacing={2}>
         {
           comments.map((comment) => (
-            <Grid item xs={5} lg={3} key={`${comment.author}-${comment.id}`}>
+            <Grid item xs={6} lg={3} key={`${comment.author}-${comment.id}`}>
               <Comment comment={comment as CommentClass} />
             </Grid>
           ))
