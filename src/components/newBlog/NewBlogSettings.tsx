@@ -1,7 +1,7 @@
 import { tags } from "@/data"
 import { TextField, Typography, styled, TextareaAutosize, Autocomplete, Chip, Box, Button } from "@mui/material"
 import { PostFormat } from "@/classes/Post"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import React from "react"
 
@@ -63,6 +63,14 @@ const NewBlogSettings = ({ setSettings }: Props) => {
   const [descriptionError, setDescriptionError] = useState<boolean>(false);
   const [tagsError, setTagsError] = useState<boolean>(false);
 
+  const [isSaved, setIsSaved] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (isSaved) {
+      setIsSaved(false);
+    }
+  }, [activeFormat, title, description, postTags])
+
   const handleSaveSettings = () => {
     if (!title) {
       setTitleError(true);
@@ -86,7 +94,11 @@ const NewBlogSettings = ({ setSettings }: Props) => {
       description,
       tags: postTags,
     });
+
+    setIsSaved(true);
   };
+
+
 
   return (
     <StyledPostSettings>
@@ -174,11 +186,14 @@ const NewBlogSettings = ({ setSettings }: Props) => {
         <Button
           variant="contained"
           onClick={() => handleSaveSettings()}
+          disabled={isSaved}
+          fullWidth
+          sx={{ marginTop: '1rem' }}
         >
           Save settings
         </Button>
       </StyledCategoryBox>
-    </StyledPostSettings>
+    </StyledPostSettings >
   )
 }
 
