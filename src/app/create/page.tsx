@@ -4,7 +4,7 @@ import Title from "@/components/blogBoard/Title";
 import { Button, Grid, styled, Box } from "@mui/material";
 import NewBlogSettings from "@/components/newBlog/NewBlogSettings";
 import NewBlogEditor from "@/components/newBlog/NewBlogEditor";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const StyledButton = styled(Button)({
   position: 'fixed',
@@ -17,10 +17,17 @@ const StyledButton = styled(Button)({
 
 const NewPost = () => {
   const [settings, setSettings] = useState({})
-  const [text, setText] = useState([])
+  const [paragraphTexts, setParagraphTexts] = useState<string[]>(['']);
+  const [disableSave, setDisableSave] = useState<boolean>(true);
+
+  useEffect(() => {
+    const hasText = paragraphTexts.some(text => text.length > 0);
+    const hasSettings = Object.keys(settings).length > 0;
+    setDisableSave(!hasText || !hasSettings);
+  }, [paragraphTexts, settings])
 
   const handleCreatePost = () => {
-    console.log('create post');
+    console.log(settings, paragraphTexts)
   }
 
   return (
@@ -31,10 +38,13 @@ const NewPost = () => {
           <NewBlogSettings setSettings={setSettings} />
         </Grid>
         <Grid item xs={12} md={6} lg={7}>
-          <NewBlogEditor />
+          <NewBlogEditor
+            paragraphTexts={paragraphTexts}
+            setParagraphTexts={setParagraphTexts}
+          />
         </Grid>
       </Grid >
-      <StyledButton variant="contained" onClick={() => handleCreatePost()}>
+      <StyledButton disabled={disableSave} variant="contained" onClick={() => handleCreatePost()}>
         Create Post
       </StyledButton>
     </Box>

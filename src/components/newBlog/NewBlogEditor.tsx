@@ -38,8 +38,12 @@ const StyledNewParagraph = styled(Button)({
   height: '1.5rem',
 });
 
-const NewBlogEditor = (): JSX.Element => {
-  const [paragraphTexts, setParagraphTexts] = useState<string[]>(['']);
+type Props = {
+  paragraphTexts: string[];
+  setParagraphTexts: (texts: string[]) => void;
+}
+
+const NewBlogEditor = ({ paragraphTexts, setParagraphTexts }: Props): JSX.Element => {
 
   const handleNewParagraph = (index: number) => {
     const newTexts = [...paragraphTexts];
