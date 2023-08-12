@@ -1,6 +1,5 @@
 "use client"
 
-import { posts } from '@/data'
 import BlogPostCard from '@/components/blogBoard/BlogPostCard'
 import { Post } from '@/classes/Post'
 import { Box, styled } from '@mui/material'
@@ -19,7 +18,11 @@ const BlogPostContainer = styled(Box)({
   },
 })
 
-const BlogBoard = (): JSX.Element => {
+type Props = {
+  posts: Post[]
+}
+
+const BlogBoard = ({ posts }: Props): JSX.Element => {
   return (
     <StyledBlogBoard>
       {posts.map((post, index) => (

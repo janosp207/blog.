@@ -31,9 +31,9 @@ const BlogPostCard = ({ post }: Props): JSX.Element => {
     <StyledBlogBox>
       <Box>
         <Typography variant="h4" fontWeight='bold'>{post.title}</Typography>
-        <Typography variant="subtitle1" fontWeight='bold'>{post.date}</Typography>
+        <Typography variant="subtitle1" fontWeight='bold'>{post.formattedDate}</Typography>
       </Box>
-      <Typography variant="body1">{post.shortText}</Typography>
+      <Typography variant="body1">{post.shorttext}</Typography>
       <Box display='flex' flexDirection='row' gap={2} alignItems='center' flexWrap='wrap'>
         <Link href={PATHS.POST.replace(':id', `${post.id}`)}>
           <Button variant="outlined" color="primary">Read more.</Button>
