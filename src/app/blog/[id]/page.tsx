@@ -1,15 +1,17 @@
 'use client';
 
-import { Grid, Button, styled } from '@mui/material';
+import { Grid, Button, styled, Typography } from '@mui/material';
 import PostBody from '@/components/blogPost/PostBody';
 import { Post } from '@/classes/Post';
 import PostAuthor from '@/components/blogPost/PostAuthor';
 import PostComments from '@/components/blogPost/PostComments';
 import CreateComment from '@/components/blogPost/CreateComment';
 import { usePost } from '@/api/post';
+import { useComments } from '@/api/comment';
 
 const BlogPostPage = ({ params }: { params: { id: string } }): JSX.Element => {
   const { post, isLoading } = usePost(params.id);
+  const { comments, isLoading: commentsLoading, store } = useComments(params.id);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -27,11 +29,18 @@ const BlogPostPage = ({ params }: { params: { id: string } }): JSX.Element => {
         </Grid>
         <Grid item xs={12} lg={8} textAlign={'center'}>
           <PostBody post={post} />
-          <CreateComment />
+          <CreateComment createComment={store} />
         </Grid>
         <Grid item xs={12} lg={2} />
       </Grid>
-      <PostComments />
+      {
+        commentsLoading ?
+          <Typography variant='h3' fontWeight='bold' textAlign='center' mt={8} mb={3}>Loading comments...</Typography> : ''
+      }
+      {
+        !commentsLoading && comments.length > 0 ?
+          <PostComments comments={comments} /> : ''
+      }
     </>
   );
 };

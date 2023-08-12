@@ -1,4 +1,5 @@
 import { Box, TextareaAutosize, Typography, styled, Button } from "@mui/material";
+import { useState } from "react";
 
 const StyledTextArea = styled(TextareaAutosize)({
   width: '100%',
@@ -26,8 +27,18 @@ const StyledPostButton = styled(Button)({
   float: 'right'
 });
 
+interface Props {
+  createComment: (comment: string) => Promise<void>;
+}
 
-const CreateComment = () => {
+const CreateComment = ({ createComment }: Props): JSX.Element => {
+  const [comment, setComment] = useState('');
+
+  const handlePostComment = async () => {
+    await createComment(comment);
+    setComment('');
+  };
+
   return (
     <StyledNewCommentBox mt={3}>
       <Typography variant='h6' fontWeight='bold' mb={2}>
@@ -38,8 +49,10 @@ const CreateComment = () => {
         minRows={3}
         placeholder="Write a comment..."
         style={{ width: '100%' }}
+        value={comment}
+        onChange={(e) => setComment(e.target.value)}
       />
-      <StyledPostButton variant="contained">Post comment.</StyledPostButton>
+      <StyledPostButton variant="contained" onClick={() => handlePostComment()}>Post comment.</StyledPostButton>
     </StyledNewCommentBox>
   );
 }

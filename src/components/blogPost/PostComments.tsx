@@ -2,10 +2,13 @@
 
 import { Typography, Box, Grid } from "@mui/material";
 import Comment from "./Comment";
-import { comments } from "@/data";
 import { Comment as CommentClass } from "@/classes/Comment";
 
-const PostComments = () => {
+type Props = {
+  comments: CommentClass[];
+}
+
+const PostComments = ({ comments }: Props): JSX.Element => {
   return (
     <Box mt={5}>
       <Typography variant='h3' fontWeight='bold' textAlign='center' mt={8} mb={3}>Comments</Typography>

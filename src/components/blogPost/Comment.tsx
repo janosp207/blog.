@@ -15,10 +15,10 @@ const Comment = ({ comment }: { comment: Comment }) => {
     <StyledCommentBox>
       <Box display='flex' flexDirection='row' alignItems='center'>
         <Box>
-          <Typography variant='h6' fontWeight='bold'>{comment.author} says</Typography>
-          <Typography component='p' >{comment.authorTag}</Typography>
+          <Typography variant='h6' fontWeight='bold'>{comment.name} says</Typography>
+          <Typography component='p' >{comment.usertag}</Typography>
         </Box>
-        <Typography component='p' ml='auto' fontWeight='bold'>{comment.date}</Typography>
+        <Typography component='p' ml='auto' fontWeight='bold'>{comment.formattedDate}</Typography>
       </Box>
 
       <Typography component='p' mt={2} fontWeight='bold'>"{comment.text}"</Typography>
