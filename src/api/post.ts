@@ -10,9 +10,15 @@ export const usePosts = (userId: string) => {
     return data.posts;
   });
 
+  const store = async (post: Post): Promise<{ id: number }> => {
+    const { data } = await axios.post(API_PATHS.CREATE.replace(':userId', userId), post)
+    return data;
+  }
+
   return {
     posts: data ? data.map((post: any) => new Post(post)) : undefined,
     isLoading,
+    store
   };
 };
 

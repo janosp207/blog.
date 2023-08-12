@@ -38,35 +38,35 @@ const StyledNewParagraph = styled(Button)({
 });
 
 type Props = {
-  paragraphTexts: string[];
-  setParagraphTexts: (texts: string[]) => void;
+  text: string[];
+  setText: (texts: string[]) => void;
 }
 
-const NewBlogEditor = ({ paragraphTexts, setParagraphTexts }: Props): JSX.Element => {
+const NewBlogEditor = ({ text, setText }: Props): JSX.Element => {
 
   const handleNewParagraph = (index: number) => {
-    const newTexts = [...paragraphTexts];
+    const newTexts = [...text];
     newTexts.splice(index + 1, 0, '');
-    setParagraphTexts(newTexts);
+    setText(newTexts);
   }
 
   const handleRemoveParagraph = (index: number) => {
-    const newTexts = [...paragraphTexts];
+    const newTexts = [...text];
     newTexts.splice(index, 1);
-    setParagraphTexts(newTexts);
+    setText(newTexts);
   }
 
   const handleChange = (index: number, newText: string) => {
-    const newTexts = [...paragraphTexts];
+    const newTexts = [...text];
     newTexts[index] = newText;
-    setParagraphTexts(newTexts);
+    setText(newTexts);
   }
 
   return (
     <StyledEditor>
       <Typography variant="h6" fontWeight='bold' textAlign='center'>Blog. editor</Typography>
       {
-        paragraphTexts.map((text, index) => (
+        text.map((text, index) => (
           <Box position={'relative'} key={`${index}-textField`}>
             <StyledTextArea
               placeholder={`Paragraph ${index + 1}`}

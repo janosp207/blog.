@@ -5,7 +5,7 @@ const PATHS = {
 };
 
 const API_PATHS = {
-  CREATE: '/create',
+  CREATE: '/users/:userId/create',
   POSTS: '/users/:userId/posts',
   POST: '/posts/:id',
 };

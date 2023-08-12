@@ -93,7 +93,7 @@ const NewBlogSettings = ({ setSettings, setDisableSave }: Props) => {
     setSettings({
       format: activeFormat,
       title,
-      description,
+      shorttext: description,
       tags: postTags,
     });
 
