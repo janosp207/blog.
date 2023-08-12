@@ -1,5 +1,4 @@
 import { Typography, styled, Box, TextareaAutosize, Button } from '@mui/material';
-import { useState } from 'react';
 
 const StyledEditor = styled(Box)({
   border: '1px solid black',
