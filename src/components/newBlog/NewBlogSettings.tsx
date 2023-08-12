@@ -3,6 +3,7 @@ import { TextField, Typography, styled, TextareaAutosize, Autocomplete, Chip, Bo
 import { PostFormat } from "@/classes/Post"
 import { useState } from "react"
 import Image from "next/image"
+import React from "react"
 
 const StyledPostSettings = styled(Box)({
   border: '1px solid black',
@@ -48,7 +49,20 @@ type Props = {
 }
 
 const NewBlogSettings = ({ setSettings }: Props) => {
-  const [activeFormat, setActiveFormat] = useState<PostFormat>(PostFormat.FULL)
+  const [activeFormat, setActiveFormat] = useState<PostFormat>(PostFormat.FULL);
+  const [title, setTitle] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
+  const [postTags, setPostTags] = useState<string[]>([]);
+  const [inputValue, setInputValue] = useState<string>('');
+
+  const handleSaveSettings = () => {
+    setSettings({
+      format: activeFormat,
+      title,
+      description,
+      tags: postTags,
+    });
+  };
 
   return (
     <StyledPostSettings>
@@ -74,11 +88,19 @@ const NewBlogSettings = ({ setSettings }: Props) => {
       </StyledCategoryBox>
       <StyledCategoryBox>
         <Typography>Blog. title</Typography>
-        <TextField fullWidth variant="outlined" placeholder="Title" />
+        <TextField
+          fullWidth
+          variant="outlined"
+          placeholder="Title"
+          onChange={(e) => setTitle(e.target.value)}
+        />
       </StyledCategoryBox>
       <StyledCategoryBox>
         <Typography>Blog. description</Typography>
-        <StyledTextArea placeholder="Short description about the post..." />
+        <StyledTextArea
+          placeholder="Short description about the post..."
+          onChange={(e) => setDescription(e.target.value)}
+        />
       </StyledCategoryBox>
       <StyledCategoryBox>
         <Typography>Blog. tags</Typography>
@@ -87,11 +109,18 @@ const NewBlogSettings = ({ setSettings }: Props) => {
           id="tags-filled"
           options={tags.map((option) => option)}
           freeSolo
-          renderTags={(value: readonly string[], getTagProps) =>
-            value.map((option: string, index: number) => (
-              <Chip variant="outlined" label={option} {...getTagProps({ index })} />
+          renderOption={(props, option) => {
+            return (
+              <li {...props} key={option}>
+                {option}
+              </li>
+            );
+          }}
+          renderTags={(tagValue, getTagProps) => {
+            return tagValue.map((option, index) => (
+              <Chip {...getTagProps({ index })} key={option} label={option} />
             ))
-          }
+          }}
           renderInput={(params) => (
             <TextField
               {...params}
@@ -100,8 +129,17 @@ const NewBlogSettings = ({ setSettings }: Props) => {
               placeholder="Tags"
             />
           )}
+          onChange={(e, value) => setPostTags(value)}
+          value={postTags}
+          inputValue={inputValue}
+          onInputChange={(e, value) => setInputValue(value)}
         />
-        <Button variant="contained">Save settings</Button>
+        <Button
+          variant="contained"
+          onClick={() => handleSaveSettings()}
+        >
+          Save settings
+        </Button>
       </StyledCategoryBox>
     </StyledPostSettings>
   )

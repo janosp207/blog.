@@ -64,9 +64,8 @@ const NewBlogEditor = (): JSX.Element => {
       <Typography variant="h6" fontWeight='bold' textAlign='center'>Blog. editor</Typography>
       {
         paragraphTexts.map((text, index) => (
-          <Box position={'relative'}>
+          <Box position={'relative'} key={`${index}-textField`}>
             <StyledTextArea
-              key={`${index}-textField`}
               placeholder={`Paragraph ${index + 1}`}
               value={text}
               onChange={(e) => handleChange(index, e.target.value)}
