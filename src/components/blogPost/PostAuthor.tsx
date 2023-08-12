@@ -2,6 +2,7 @@
 
 import { Box, Button, Typography, styled } from '@mui/material';
 import { user } from '@/data';
+import { Post } from '@/classes/Post';
 
 const AuthorBox = styled(Box)({
   border: '1px solid black',
@@ -16,12 +17,16 @@ const AuthorBox = styled(Box)({
   alignItems: 'center',
 });
 
-const PostAuthor = () => (
+type Props = {
+  post: Post;
+}
+
+const PostAuthor = ({ post }: Props) => (
   <AuthorBox>
     <Box mb={2}>
       <Typography variant='h6' fontWeight='bold' >Author.</Typography>
-      <Typography variant='h4' fontWeight='bold' >{user.name}</Typography>
-      <Typography fontWeight='bold' >@{user.usertag}</Typography>
+      <Typography variant='h4' fontWeight='bold' >{post.name}</Typography>
+      <Typography fontWeight='bold' >@{post.usertag}</Typography>
     </Box>
     <Box>
       <Button>

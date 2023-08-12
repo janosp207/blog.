@@ -7,6 +7,7 @@ const PATHS = {
 const API_PATHS = {
   CREATE: '/create',
   POSTS: '/users/:userId/posts',
+  POST: '/posts/:id',
 };
 
 export { PATHS, API_PATHS };

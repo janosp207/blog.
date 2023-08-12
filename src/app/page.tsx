@@ -2,7 +2,7 @@
 
 import BlogBoard from "@/components/blogBoard/BlogBoard"
 import Title from "@/components/blogBoard/Title"
-import usePosts from "@/api/post"
+import { usePosts } from "@/api/post"
 
 export default function Home(): JSX.Element {
 	const { posts, isLoading } = usePosts('1');

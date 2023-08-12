@@ -21,7 +21,7 @@ const PostBody = ({ post }: { post: Post }): JSX.Element => {
   return (
     <StyledBlogBody>
       <Box display='flex' flexDirection='row' flexWrap='wrap' gap={3}>
-        <Typography variant='h6' fontWeight='bold' >{post.date}</Typography>
+        <Typography variant='h6' fontWeight='bold' >{post.formattedDate}</Typography>
         {
           post.tags.map((tag) => (
             <BlogTag tag={tag} key={`${post.title}-${tag}`} />
@@ -29,7 +29,7 @@ const PostBody = ({ post }: { post: Post }): JSX.Element => {
         }
       </Box>
       <Typography variant='h1' fontWeight='bold'>{post.title}</Typography>
-      <Typography variant='h6' fontWeight='bold' >({post.shortText})</Typography>
+      <Typography variant='h6' fontWeight='bold' >({post.shorttext})</Typography>
 
       <Box mt={5}>
         {post.text.map((text, index) => (
