@@ -101,7 +101,7 @@ const NewBlogSettings = ({ setSettings }: Props) => {
             />
           )}
         />
-        <Button>Save settings</Button>
+        <Button variant="contained">Save settings</Button>
       </StyledCategoryBox>
     </StyledPostSettings>
   )

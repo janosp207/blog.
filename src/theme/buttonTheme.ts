@@ -14,6 +14,13 @@ const buttonTheme = {
         },
         fontWeight: 'bold',
       },
+      contained: {
+        backgroundColor: '#0D0D0D',
+        color: 'white',
+        '&:hover': {
+          backgroundColor: '#2D2D2D',
+        },
+      },
     },
   },
 }

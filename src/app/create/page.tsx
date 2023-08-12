@@ -12,11 +12,6 @@ const StyledButton = styled(Button)({
   right: '2rem',
   zIndex: 1000,
   padding: '0.5rem 3rem',
-  backgroundColor: '#0D0D0D',
-  color: 'white',
-  '&:hover': {
-    backgroundColor: '#2D2D2D',
-  },
 });
 
 
@@ -33,13 +28,15 @@ const NewPost = () => {
       <Title text="New Post" />
       <Grid container gap={3} justifyContent='center'>
         <Grid item xs={12} md={5} lg={4}>
-          <NewBlogSettings />
+          <NewBlogSettings setSettings={setSettings} />
         </Grid>
         <Grid item xs={12} md={6} lg={7}>
           <NewBlogEditor />
         </Grid>
       </Grid >
-      <StyledButton color="primary" onClick={() => handleCreatePost()}>Create Post</StyledButton>
+      <StyledButton variant="contained" onClick={() => handleCreatePost()}>
+        Create Post
+      </StyledButton>
     </Box>
   )
 };

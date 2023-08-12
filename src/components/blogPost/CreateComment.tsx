@@ -22,12 +22,7 @@ const StyledNewCommentBox = styled(Box)({
 });
 
 const StyledPostButton = styled(Button)({
-  backgroundColor: 'black',
-  color: 'white',
   padding: '0.5rem 1rem',
-  '&:hover': {
-    backgroundColor: '#2D2D2D',
-  },
   float: 'right'
 });
 
@@ -44,7 +39,7 @@ const CreateComment = () => {
         placeholder="Write a comment..."
         style={{ width: '100%' }}
       />
-      <StyledPostButton>Post comment.</StyledPostButton>
+      <StyledPostButton variant="contained">Post comment.</StyledPostButton>
     </StyledNewCommentBox>
   );
 }

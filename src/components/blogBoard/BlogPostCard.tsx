@@ -36,7 +36,7 @@ const BlogPostCard = ({ post }: Props): JSX.Element => {
       <Typography variant="body1">{post.shortText}</Typography>
       <Box display='flex' flexDirection='row' gap={2} alignItems='center' flexWrap='wrap'>
         <Link href={PATHS.POST.replace(':id', `${post.id}`)}>
-          <Button variant="contained" color="primary">Read more.</Button>
+          <Button variant="outlined" color="primary">Read more.</Button>
         </Link>
         <Circle />
         {
