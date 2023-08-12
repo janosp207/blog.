@@ -2,19 +2,20 @@ import { tags } from "@/data"
 import { TextField, Typography, styled, TextareaAutosize, Autocomplete, Chip, Box } from "@mui/material"
 import { PostFormat } from "@/classes/Post"
 import { useState } from "react"
+import Image from "next/image"
+
 const StyledPostSettings = styled(Box)({
   border: '1px solid black',
   padding: '2rem',
   borderRadius: '1rem',
 })
 
-const StyledFormatItem = styled(Box, { shouldForwardProp: (prop) => prop !== 'active' })(({ active }: { active: boolean }) => ({
-  width: '15rem',
-  height: '10rem',
-  border: active ? '1px solid black' : '1px solid grey',
+const StyledFormatItem = styled(Image, { shouldForwardProp: (prop) => prop !== 'active' })(({ active }: { active: boolean }) => ({
+  border: active ? '2px solid black' : '1px solid grey',
   boxShadow: active ? '0px 0px 10px 0px rgba(0,0,0,0.3)' : 'none',
   cursor: 'pointer',
   transition: 'all 0.2s ease',
+  borderRadius: '0.6rem',
 }))
 
 const StyledTextArea = styled(TextareaAutosize)({
@@ -54,11 +55,17 @@ const NewBlogSettings = () => {
           <StyledFormatItem
             active={activeFormat === PostFormat.FULL}
             onClick={() => setActiveFormat(PostFormat.FULL)}
-          >FULL</StyledFormatItem>
+            src={'/images/fullwidth.jpg'} alt='fullwidth'
+            width={200}
+            height={140}
+          />
           <StyledFormatItem
             active={activeFormat === PostFormat.HALF}
             onClick={() => setActiveFormat(PostFormat.HALF)}
-          >HALF</StyledFormatItem>
+            src={'/images/halfwidth.jpg'} alt='halfwidth'
+            width={200}
+            height={140}
+          />
         </Box>
       </StyledCategoryBox>
       <StyledCategoryBox>
