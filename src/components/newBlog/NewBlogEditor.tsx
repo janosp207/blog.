@@ -76,10 +76,16 @@ const NewBlogEditor = ({ paragraphTexts, setParagraphTexts }: Props): JSX.Elemen
             />
             {
               index !== 0 && (
-                <StyledRemoveButton onClick={() => handleRemoveParagraph(index)}>X.</StyledRemoveButton>
+                <StyledRemoveButton onClick={() => handleRemoveParagraph(index)}>
+                  X.
+                </StyledRemoveButton>
               )
             }
-            <StyledNewParagraph onClick={() => handleNewParagraph(index)}>Add paragraph.</StyledNewParagraph>
+            <StyledNewParagraph
+              onClick={() => handleNewParagraph(index)}
+            >
+              Add paragraph.
+            </StyledNewParagraph>
           </Box>
         ))
       }
