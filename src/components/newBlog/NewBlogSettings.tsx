@@ -49,10 +49,11 @@ const StyledCategoryBox = styled(Box)({
 })
 
 type Props = {
-  setSettings: (settings: any) => void
+  setSettings: (settings: any) => void,
+  setDisableSave: (disable: boolean) => void,
 }
 
-const NewBlogSettings = ({ setSettings }: Props) => {
+const NewBlogSettings = ({ setSettings, setDisableSave }: Props) => {
   const [activeFormat, setActiveFormat] = useState<PostFormat>(PostFormat.FULL);
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
@@ -68,6 +69,7 @@ const NewBlogSettings = ({ setSettings }: Props) => {
   useEffect(() => {
     if (isSaved) {
       setIsSaved(false);
+      setDisableSave(true);
     }
   }, [activeFormat, title, description, postTags])
 

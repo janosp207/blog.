@@ -35,7 +35,7 @@ const NewPost = () => {
       <Title text="New Post" />
       <Grid container gap={3} justifyContent='center'>
         <Grid item xs={12} md={5} lg={4}>
-          <NewBlogSettings setSettings={setSettings} />
+          <NewBlogSettings setSettings={setSettings} setDisableSave={setDisableSave} />
         </Grid>
         <Grid item xs={12} md={6} lg={7}>
           <NewBlogEditor
