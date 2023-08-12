@@ -4,6 +4,7 @@ import Title from "@/components/blogBoard/Title";
 import { Button, Grid, styled, Box } from "@mui/material";
 import NewBlogSettings from "@/components/newBlog/NewBlogSettings";
 import NewBlogEditor from "@/components/newBlog/NewBlogEditor";
+import { useState } from "react";
 
 const StyledButton = styled(Button)({
   position: 'fixed',
@@ -20,6 +21,13 @@ const StyledButton = styled(Button)({
 
 
 const NewPost = () => {
+  const [settings, setSettings] = useState({})
+  const [text, setText] = useState([])
+
+  const handleCreatePost = () => {
+    console.log('create post');
+  }
+
   return (
     <Box mb={4}>
       <Title text="New Post" />
@@ -31,7 +39,7 @@ const NewPost = () => {
           <NewBlogEditor />
         </Grid>
       </Grid >
-      <StyledButton color="primary">Create Post</StyledButton>
+      <StyledButton color="primary" onClick={() => handleCreatePost()}>Create Post</StyledButton>
     </Box>
   )
 };

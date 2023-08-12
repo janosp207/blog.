@@ -1,5 +1,5 @@
 import { tags } from "@/data"
-import { TextField, Typography, styled, TextareaAutosize, Autocomplete, Chip, Box } from "@mui/material"
+import { TextField, Typography, styled, TextareaAutosize, Autocomplete, Chip, Box, Button } from "@mui/material"
 import { PostFormat } from "@/classes/Post"
 import { useState } from "react"
 import Image from "next/image"
@@ -43,7 +43,11 @@ const StyledCategoryBox = styled(Box)({
   }
 })
 
-const NewBlogSettings = () => {
+type Props = {
+  setSettings: (settings: any) => void
+}
+
+const NewBlogSettings = ({ setSettings }: Props) => {
   const [activeFormat, setActiveFormat] = useState<PostFormat>(PostFormat.FULL)
 
   return (
@@ -97,6 +101,7 @@ const NewBlogSettings = () => {
             />
           )}
         />
+        <Button>Save settings</Button>
       </StyledCategoryBox>
     </StyledPostSettings>
   )
