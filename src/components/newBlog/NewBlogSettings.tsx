@@ -19,15 +19,19 @@ const StyledFormatItem = styled(Image, { shouldForwardProp: (prop) => prop !== '
   borderRadius: '0.6rem',
 }))
 
-const StyledTextArea = styled(TextareaAutosize)({
+const StyledTextArea = styled(TextareaAutosize, { shouldForwardProp: (prop) => prop !== 'error' })(({ error }: { error: boolean }) => ({
   width: '100%',
-  border: '1px solid lightgrey',
+  border: error ? '1px solid #d32f2f' : '1px solid lightgrey',
   borderRadius: '1rem',
   padding: '1rem',
   resize: 'none',
   fontFamily: 'inherit',
   fontSize: 'inherit',
-})
+
+  '&:focus': {
+    outline: error ? '1px solid #d32f2f' : '1px solid inherit',
+  }
+}))
 
 const StyledCategoryBox = styled(Box)({
   width: '100%',
@@ -55,7 +59,27 @@ const NewBlogSettings = ({ setSettings }: Props) => {
   const [postTags, setPostTags] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState<string>('');
 
+  const [titleError, setTitleError] = useState<boolean>(false);
+  const [descriptionError, setDescriptionError] = useState<boolean>(false);
+  const [tagsError, setTagsError] = useState<boolean>(false);
+
   const handleSaveSettings = () => {
+    if (!title) {
+      setTitleError(true);
+    }
+
+    if (!description) {
+      setDescriptionError(true);
+    }
+
+    if (!postTags.length) {
+      setTagsError(true);
+    }
+
+    if (!title || !description || !postTags.length) {
+      return;
+    }
+
     setSettings({
       format: activeFormat,
       title,
@@ -92,14 +116,23 @@ const NewBlogSettings = ({ setSettings }: Props) => {
           fullWidth
           variant="outlined"
           placeholder="Title"
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => {
+            setTitle(e.target.value)
+            setTitleError(false)
+          }}
+          value={title}
+          error={titleError}
         />
       </StyledCategoryBox>
       <StyledCategoryBox>
         <Typography>Blog. description</Typography>
         <StyledTextArea
           placeholder="Short description about the post..."
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={(e) => {
+            setDescription(e.target.value)
+            setDescriptionError(false)
+          }}
+          error={descriptionError}
         />
       </StyledCategoryBox>
       <StyledCategoryBox>
@@ -127,9 +160,13 @@ const NewBlogSettings = ({ setSettings }: Props) => {
               variant="outlined"
               label="Tags"
               placeholder="Tags"
+              error={tagsError}
             />
           )}
-          onChange={(e, value) => setPostTags(value)}
+          onChange={(e, value) => {
+            setPostTags(value)
+            setTagsError(false)
+          }}
           value={postTags}
           inputValue={inputValue}
           onInputChange={(e, value) => setInputValue(value)}
