@@ -2,6 +2,8 @@ const PATHS = {
   HOME: '/',
   CREATE: '/create',
   POST: '/blog/:id',
+  REGISTER: '/register',
+  LOGIN: '/login',
 };
 
 const API_PATHS = {

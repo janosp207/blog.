@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { validateRegistration } from '@/utils/validation';
 import inputFields from './inputFields';
 import { registerUser } from '@/api/users';
+import { PATHS } from '@/paths';
 
 const StyledRegisterBox = styled(Box)({
   display: 'flex',
@@ -163,7 +164,7 @@ const RegisterPage = (): JSX.Element => {
         </Box>
         <Button variant='contained' fullWidth onClick={() => handleRegister()}>Register</Button>
         <Typography variant={'body2'} textAlign={'center'}>
-          Have an account? <StyledLink href={'/login'}>Login</StyledLink>
+          Have an account? <StyledLink href={PATHS.LOGIN}>Login</StyledLink>
         </Typography>
       </StyledRegisterBox>
     </Box>

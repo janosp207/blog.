@@ -30,7 +30,9 @@ const Navigation = (): JSX.Element => {
 			<Typography variant="h5" fontWeight='bold'>Blog:;</Typography>
 			<StyledFlexBox>
 				<Link href={PATHS.HOME}><Typography>Home</Typography></Link>
-				<Typography>Login</Typography>
+				<Link href={PATHS.LOGIN}>
+					<Typography>Login</Typography>
+				</Link>
 				<Link href={PATHS.CREATE}>
 					<Button>CREATE.</Button>
 				</Link>

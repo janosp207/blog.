@@ -1,4 +1,5 @@
 'use client';
+import { PATHS } from '@/paths';
 import { Box, TextField, Typography, styled, Button } from '@mui/material';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -77,7 +78,7 @@ const LoginPage = (): JSX.Element => {
         <TextField label={'Password'} type='password' fullWidth error={passwordError} onChange={(e) => setPassword(e.target.value)} />
         <Button variant='contained' fullWidth onClick={() => handleLogin()}>Log in</Button>
         <Typography variant={'body2'} textAlign={'center'}>
-          Don't have an account? <StyledLink href={'/register'}>Register</StyledLink>
+          Don't have an account? <StyledLink href={PATHS.REGISTER}>Register</StyledLink>
         </Typography>
       </StyledLoginBox>
     </Box>
