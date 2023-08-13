@@ -1,8 +1,11 @@
-"use client"
+'use client';
 
-import { Box, Typography, styled, Button } from "@mui/material";
-import { PATHS } from "@/paths";
-import Link from "next/link";
+import { Box, Typography, styled, Button } from '@mui/material';
+import { PATHS } from '@/paths';
+import Link from 'next/link';
+import { getUser } from '@/utils/utils';
+import { useState, useEffect } from 'react';
+import { User } from '@/classes/User';
 
 const StyledNavBox = styled(Box)({
 	display: 'flex',
@@ -25,17 +28,38 @@ const StyledFlexBox = styled(Box)({
 })
 
 const Navigation = (): JSX.Element => {
+	const [user, setUser] = useState<User>();
+
+	useEffect(() => {
+		setUser(getUser());
+	}, []);
+
+	const handleLogout = () => {
+		localStorage.removeItem('username');
+		localStorage.removeItem('usertag');
+		localStorage.removeItem('id');
+		localStorage.removeItem('token');
+
+		setUser(undefined);
+		window.location.href = PATHS.LOGIN;
+	};
+
 	return (
 		<StyledNavBox>
 			<Typography variant="h5" fontWeight='bold'>Blog:;</Typography>
 			<StyledFlexBox>
 				<Link href={PATHS.HOME}><Typography>Home</Typography></Link>
-				<Link href={PATHS.LOGIN}>
-					<Typography>Login</Typography>
-				</Link>
-				<Link href={PATHS.CREATE}>
-					<Button>CREATE.</Button>
-				</Link>
+				{user ? 
+					<Typography sx={{ cursor: 'pointer' }} onClick={() => handleLogout()}>Logout</Typography>:
+					<Link href={PATHS.LOGIN}>
+						<Typography>Login</Typography>
+					</Link>
+				}
+				{user &&
+					<Link href={PATHS.CREATE.replace(':id', user.id)}>
+						<Button>CREATE.</Button>
+					</Link>
+				}
 			</StyledFlexBox>
 		</StyledNavBox>
 	);

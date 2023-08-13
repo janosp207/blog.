@@ -5,9 +5,16 @@ const axios = Axios.create({
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
     'Access-Control-Allow-Origin': 'http://localhost:3000',
-    'Authorization': `Bearer ${localStorage.getItem('token')}`,
   },
   withCredentials: true,
+});
+
+axios.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers['Authorization'] = `Bearer ${token}`;
+  }
+  return config;
 });
 
 export default axios;

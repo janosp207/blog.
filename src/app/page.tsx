@@ -1,13 +1,13 @@
-"use client"
+'use client';
 
-import BlogBoard from "@/components/blogBoard/BlogBoard"
-import Title from "@/components/blogBoard/Title"
-import { usePosts } from "@/api/post"
+import BlogBoard from '@/components/blogBoard/BlogBoard';
+import Title from '@/components/blogBoard/Title';
+import { useAllPosts } from '@/api/post';
 
 export default function Home(): JSX.Element {
-	const { posts, isLoading } = usePosts('1');
+	const { posts, isLoading } = useAllPosts();
 
-	if (isLoading) return <div>Loading...</div>
+	if (isLoading) return <div>Loading...</div>;
 
 	return (
 		<>

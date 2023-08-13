@@ -25,10 +25,10 @@ type Settings = {
   format: string,
 };
 
-const NewPost = (): JSX.Element => {
+const NewPost = ({ params }: { params: { id: string } }): JSX.Element => {
   const router = useRouter();
-  const { store, isLoading } = usePosts('1');
-  const [settings, setSettings] = useState({})
+  const { store, isLoading } = usePosts(params.id);
+  const [settings, setSettings] = useState({});
   const [text, setText] = useState<string[]>(['']);
   const [disableSave, setDisableSave] = useState<boolean>(true);
 
