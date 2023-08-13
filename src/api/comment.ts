@@ -11,7 +11,8 @@ export const useComments = (postId: string) => {
   });
 
   const store = async (comment: string): Promise<void> => {
-    const { data } = await axios.post(API_PATHS.COMMENTS.replace(':postId', postId), { text: comment, user_id: 2 })
+    const userId = localStorage.getItem('id');
+    const { data } = await axios.post(API_PATHS.COMMENTS.replace(':postId', postId), { text: comment, user_id: userId});
 
     mutate((comments: any) => [new Comment(data.comment), ...comments], false);
   }
