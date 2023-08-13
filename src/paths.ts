@@ -12,6 +12,7 @@ const API_PATHS = {
   POST: '/posts/:id',
   COMMENTS: '/posts/:postId/comments',
   REGISTER: '/users/register',
+  LOGIN: '/users/login',
 };
 
 export { PATHS, API_PATHS };

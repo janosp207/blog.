@@ -5,8 +5,9 @@ const axios = Axios.create({
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
     'Access-Control-Allow-Origin': 'http://localhost:3000',
+    'Authorization': `Bearer ${localStorage.getItem('token')}`,
   },
   withCredentials: true,
 });
 
-export default axios
+export default axios;
