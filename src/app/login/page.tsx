@@ -69,14 +69,15 @@ const LoginPage = (): JSX.Element => {
     if (username.length >= 3 && password.length >= 3) {
       setUsernameError(false);
       setPasswordError(false);
-      const data = await loginUser(username, password);
-
-      if (data) {
-        window.location.href = PATHS.HOME;
+      try{
+        const data = await loginUser(username, password);
+        if (data) {
+          window.location.href = PATHS.HOME;
+        }
+      } catch (e) {
+        setLoading(false);
       }
     }
-    
-    setLoading(false);
   };
 
   return (
