@@ -25,7 +25,7 @@ const PostAuthor = ({ post }: Props) => (
   <AuthorBox>
     <Box mb={2}>
       <Typography variant='h6' fontWeight='bold' >Author.</Typography>
-      <Typography variant='h4' fontWeight='bold' >{post.name}</Typography>
+      <Typography variant='h4' fontWeight='bold' >{post.username}</Typography>
       <Typography fontWeight='bold' >@{post.usertag}</Typography>
     </Box>
     <Box>

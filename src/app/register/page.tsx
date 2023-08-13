@@ -3,8 +3,9 @@ import { Box, TextField, Typography, styled, Button, InputAdornment } from '@mui
 import CheckCircleSharpIcon from '@mui/icons-material/CheckCircleSharp';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import validateRegistration from '@/utils/validation';
+import { validateRegistration } from '@/utils/validation';
 import inputFields from './inputFields';
+import { registerUser } from '@/api/users';
 
 const StyledRegisterBox = styled(Box)({
   display: 'flex',
@@ -129,6 +130,8 @@ const RegisterPage = (): JSX.Element => {
     if (Object.values(tempErrors).includes(true)) {
       return;
     }
+
+    registerUser(newUserData);
   };
 
   return (

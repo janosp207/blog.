@@ -15,7 +15,7 @@ const Comment = ({ comment }: { comment: Comment }) => {
     <StyledCommentBox>
       <Box display='flex' flexDirection='row' alignItems='center'>
         <Box>
-          <Typography variant='h6' fontWeight='bold'>{comment.name} says</Typography>
+          <Typography variant='h6' fontWeight='bold'>{comment.username} says</Typography>
           <Typography component='p' >{comment.usertag}</Typography>
         </Box>
         <Typography component='p' ml='auto' fontWeight='bold'>{comment.formattedDate}</Typography>

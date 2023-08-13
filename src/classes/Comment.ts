@@ -2,14 +2,14 @@ export class Comment {
   id = 0;
   date = '';
   text = '';
-  name = '';
+  username = '';
   usertag = ''
   postId = 0;
   constructor(data: Partial<Comment>) {
     this.id = data.id ?? this.id;
     this.date = data.date ?? this.date;
     this.text = data.text ?? this.text;
-    this.name = data.name ?? this.name;
+    this.username = data.username ?? this.username;
     this.usertag = data.usertag ?? this.usertag;
     this.postId = data.postId ?? this.postId;
   }

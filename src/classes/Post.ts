@@ -5,7 +5,7 @@ export enum PostFormat {
 
 export class Post {
   id = 0;
-  name = '';
+  username = '';
   usertag = '';
   date = '';
   format = PostFormat.HALF;
@@ -16,7 +16,7 @@ export class Post {
 
   constructor(data: Partial<Post>) {
     this.id = data.id ?? this.id;
-    this.name = data.name ?? this.name;
+    this.username = data.username ?? this.username;
     this.usertag = data.usertag ?? this.usertag;
     this.date = data.date ?? this.date;
     this.format = data.format ?? this.format;

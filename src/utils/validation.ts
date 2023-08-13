@@ -1,12 +1,12 @@
 
-type NewUserData = {
+export type NewUserData = {
   username: string;
   usertag: string;
   password: string;
   repeatPassword: string;
 };
 
-const validateRegistration = (fieldName: string, value: string, newUserData: NewUserData): boolean => {
+export const validateRegistration = (fieldName: string, value: string, newUserData: NewUserData): boolean => {
   if (fieldName === 'username' || fieldName === 'usertag') {
     return value.length >= 3;
   }
@@ -23,5 +23,3 @@ const validateRegistration = (fieldName: string, value: string, newUserData: New
 
   return false;
 };
-
-export default validateRegistration;
